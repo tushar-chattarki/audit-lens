@@ -104,24 +104,8 @@ export const ProcessingPage: React.FC = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const checkStatus = async () => {
-      try {
-        const res = await getJobStatus(jobId);
-        if (isMounted && res.status) {
-          setBackendStatus(res.status as JobStatus);
-          if (res.status === 'DONE') {
-            setStages((prev) => prev.map((s) => ({ ...s, status: 'completed' })));
-          }
-        }
-      } catch (err) {
-        console.warn('Backend status check error', err);
-      }
-    };
-
-    checkStatus();
-
-    // Stage progression
-    const timer1 = setTimeout(() => {
+    // Sequential line-by-line progression for clear visual feedback
+    const t1 = setTimeout(() => {
       if (!isMounted) return;
       setStages((prev) =>
         prev.map((s) => {
@@ -132,7 +116,7 @@ export const ProcessingPage: React.FC = () => {
       );
     }, 600);
 
-    const timer2 = setTimeout(() => {
+    const t2 = setTimeout(() => {
       if (!isMounted) return;
       setStages((prev) =>
         prev.map((s) => {
@@ -143,19 +127,29 @@ export const ProcessingPage: React.FC = () => {
       );
     }, 1200);
 
-    const timer3 = setTimeout(() => {
+    const t3 = setTimeout(() => {
       if (!isMounted) return;
-      setBackendStatus('DONE');
       setStages((prev) =>
-        prev.map((s) => ({ ...s, status: 'completed' }))
+        prev.map((s) => {
+          if (s.id === 'explained') return { ...s, status: 'completed' };
+          if (s.id === 'wp514_ready') return { ...s, status: 'in_progress' };
+          return s;
+        })
       );
     }, 1800);
 
+    const t4 = setTimeout(() => {
+      if (!isMounted) return;
+      setBackendStatus('DONE');
+      setStages((prev) => prev.map((s) => ({ ...s, status: 'completed' })));
+    }, 2400);
+
     return () => {
       isMounted = false;
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
     };
   }, [jobId]);
 
