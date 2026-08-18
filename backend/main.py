@@ -20,9 +20,11 @@ app.add_middleware(
 app.include_router(review.router)
 
 @app.get("/")
+@app.get("/health")
+@app.get("/api/health")
 def root():
     return {
-        "service": "Banking Financial Statement Review Automation Backend",
+        "service": "Audit Lens — Banking Financial Statement Review Automation Backend",
         "status": "HEALTHY",
         "version": "1.0.0",
         "standard": "WP-514 Working Paper"

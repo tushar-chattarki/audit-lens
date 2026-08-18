@@ -698,11 +698,19 @@ def run_full_pipeline(
     # Step 10: Assemble complete response
     overall_status = "EXCEPTIONS FOUND" if exc_count > 0 else "PASSED WITH NO EXCEPTIONS"
 
+    final_meta = {
+        "bank_id": "SUNRISE",
+        "review_date": datetime.date.today().isoformat(),
+        "prepared_by": "Audit Lens Engine (Members 1-7)",
+        "reviewed_by": "Pending Auditor Sign-off",
+        "source_document_current": doc_id,
+        "source_document_prior": doc_id,
+        **metadata,
+        "overall_status": overall_status,
+    }
+
     return {
-        "review_metadata": {
-            **metadata,
-            "overall_status": overall_status,
-        },
+        "review_metadata": final_meta,
         "summary_kpis": kpis,
         "statement_summaries": stmt_summaries,
         "canonical_metrics": canonical_metrics,

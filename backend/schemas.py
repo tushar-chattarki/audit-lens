@@ -37,16 +37,16 @@ class FindingSchema(BaseModel):
 class ReviewMetadataSchema(BaseModel):
     job_id: str
     bank_name: str
-    bank_id: str
+    bank_id: str = "SUNRISE"
     reporting_period: str
     comparative_period: str
     currency: str
     unit: str
     source_document_current: str
     source_document_prior: str
-    review_date: str
-    prepared_by: str
-    reviewed_by: str
+    review_date: str = "2026-08-19"
+    prepared_by: str = "Audit Lens Engine (Members 1-7)"
+    reviewed_by: str = "Pending Auditor Sign-off"
     overall_status: str
 
 class SummaryKPIsSchema(BaseModel):
