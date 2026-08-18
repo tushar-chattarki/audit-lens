@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+finenv/
+
+# Testing / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated extraction outputs
+*_raw_extraction.json
+*_canonical.json
+*_pipeline_test.json
+*_column_analysis.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Keep Git focused on backend for now
+/Data/
+examples/
+
+# Local extraction tests
+backend/extraction/testing/
+
+# Tesing codes
+backend/testing
+
+backend/output
