@@ -698,16 +698,22 @@ def run_full_pipeline(
     # Step 10: Assemble complete response
     overall_status = "EXCEPTIONS FOUND" if exc_count > 0 else "PASSED WITH NO EXCEPTIONS"
 
+    inferred_bank_id = (
+        metadata.get("bank_id") or
+        metadata.get("bank_name", "BANK").strip().upper().replace(" ", "_")
+    )
     final_meta = {
-        "bank_id": "SUNRISE",
+        "bank_id": inferred_bank_id,
         "review_date": datetime.date.today().isoformat(),
-        "prepared_by": "Audit Lens Engine (Members 1-7)",
+        "prepared_by": "Audit Lens Engine",
         "reviewed_by": "Pending Auditor Sign-off",
         "source_document_current": doc_id,
         "source_document_prior": doc_id,
         **metadata,
         "overall_status": overall_status,
     }
+    if not metadata.get("bank_id"):
+        final_meta["bank_id"] = inferred_bank_id
 
     return {
         "review_metadata": final_meta,

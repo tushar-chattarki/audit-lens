@@ -38,13 +38,8 @@ async def create_review_job(
     fn = current_file.filename.lower() if current_file else ""
     bn = bank_name.lower()
     ts = datetime.datetime.now().strftime("%H%M%S")
-
-    if "sunrise" in bn or "sunrise" in fn or "sun" in bn:
-        job_id = f"REV-SUNRISE-{ts}"
-    elif "horizon" in bn or "horizon" in fn:
-        job_id = f"JOB-HORIZON-{ts}"
-    else:
-        job_id = f"REV-{ts}"
+    bank_slug = "".join(c for c in bank_name.upper() if c.isalnum())[:10] or "BANK"
+    job_id = f"REV-{bank_slug}-{ts}"
 
     file_bytes = b""
     if current_file:
@@ -68,6 +63,7 @@ async def create_review_job(
             metadata = {
                 "job_id": job_id,
                 "bank_name": bank_name,
+                "bank_id": bank_slug,
                 "reporting_period": reporting_period,
                 "comparative_period": comparative_period,
                 "currency": currency,
@@ -75,7 +71,7 @@ async def create_review_job(
                 "source_document_current": current_file.filename,
                 "source_document_prior": prior_file.filename if prior_file else current_file.filename,
                 "review_date": datetime.date.today().isoformat(),
-                "prepared_by": "Audit Lens Engine (Members 1-7)",
+                "prepared_by": "Audit Lens Engine",
                 "reviewed_by": "Pending Auditor Sign-off"
             }
             job_data = run_full_pipeline(

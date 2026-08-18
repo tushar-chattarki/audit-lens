@@ -416,7 +416,7 @@ def parse_and_audit_pdf(
             "source_document_current": filename,
             "source_document_prior": filename,
             "review_date": datetime.date.today().isoformat(),
-            "prepared_by": "Audit Lens Engine (Members 1-7)",
+            "prepared_by": "Audit Lens Engine",
             "overall_status": "EXCEPTIONS FOUND" if exceptions_cnt > 0 else "ALL CHECKS PASSED"
         },
         "financial_statement_summary": statement_summaries,
@@ -512,7 +512,7 @@ def parse_and_audit_pdf(
             "source_document_current": filename,
             "source_document_prior": filename,
             "review_date": datetime.date.today().isoformat(),
-            "prepared_by": "Audit Lens Engine (Members 1-7)",
+            "prepared_by": "Audit Lens Engine",
             "reviewed_by": "Pending Auditor Sign-off",
             "overall_status": "EXCEPTIONS FOUND" if exceptions_cnt > 0 else "ALL CHECKS PASSED"
         },

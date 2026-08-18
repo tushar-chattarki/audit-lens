@@ -37,7 +37,7 @@ class FindingSchema(BaseModel):
 class ReviewMetadataSchema(BaseModel):
     job_id: str
     bank_name: str
-    bank_id: str = "SUNRISE"
+    bank_id: str = "AUDIT_LENS"
     reporting_period: str
     comparative_period: str
     currency: str
@@ -45,7 +45,7 @@ class ReviewMetadataSchema(BaseModel):
     source_document_current: str
     source_document_prior: str
     review_date: str = "2026-08-19"
-    prepared_by: str = "Audit Lens Engine (Members 1-7)"
+    prepared_by: str = "Audit Lens Engine"
     reviewed_by: str = "Pending Auditor Sign-off"
     overall_status: str
 
