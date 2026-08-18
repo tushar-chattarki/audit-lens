@@ -1,57 +1,52 @@
-# BANKING FINANCIAL STATEMENT REVIEW AUTOMATION — Member 7 Dashboard & Integration Foundation
+# AUDIT LENS — BANKING FINANCIAL STATEMENT REVIEW AUTOMATION
 
-An AI-Assisted Audit Copilot that ingests a bank's financial statements, executes deterministic mathematical and consistency rule checks, links every finding to source evidence, generates grounded AI narrative explanations, and auto-populates a digital **WP-514 working paper** for human sign-off.
+An AI-Assisted Audit Copilot that ingests a bank's financial statements (PDF/Excel), executes deterministic mathematical and consistency rule checks, links every finding to source evidence, generates grounded AI narrative explanations, and auto-populates a digital **WP-514 working paper** for human sign-off.
 
 ---
 
-## Technical Stack & Architecture
+## Key Features
 
-- **Frontend**: React + TypeScript + Vite + Tailwind CSS + Recharts
-- **Backend**: Python 3.11 + FastAPI (Modular Monolith)
+- **Document Extraction**: Automatic ingestion of PDF and Excel financial statements into Canonical Financial JSON (schema v1.0).
+- **Deterministic Math Engine**: Cross-foots Balance Sheet equation ($\text{Assets} = \text{Liabilities} + \text{Equity}$), P&L, and Cash Flow statements with zero arithmetic AI risk.
+- **Consistency & Prior-Year Engine**: Executes cross-statement consistency checks (C001–C007) and YoY movement analysis against materiality thresholds (PY001–PY008).
+- **Grounded AI Narrative Layer**: Synthesizes evidence-grounded anomaly explanations and candidate review commentary.
+- **Source Evidence Tracing**: Every finding carries cell-level page and row evidence pointers for auditor verification.
+- **WP-514 Working Paper Auto-Population**: Populates the standard 8-section audit working paper ready for human reviewer sign-off.
+
+---
+
+## Technical Architecture & Stack
+
+- **Frontend**: React 18 + TypeScript + Vite + Tailwind CSS + Recharts
+- **Backend**: Python 3.11 + FastAPI (Modular Monolith, Stateless In-Memory Pipeline)
 - **Containerization**: Docker Compose (`frontend`, `backend`)
-- **Working Paper Standard**: WP-514 Financial Statement Review Template
+- **Audit Standard**: WP-514 Financial Statement Review Working Paper
 
 ---
 
-## Development Quick Start
+## Quick Start Guide
 
-### 1. Local Development (Frontend + Backend)
+### 1. Backend Server Setup
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn main:app --reload --port 8000
+```
+API Documentation available at: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-#### Frontend:
+### 2. Frontend Application Setup
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000)
-
-#### Backend:
-```bash
-cd backend
-pip install -r requirements.txt
-python main.py
-```
-Open API docs at [http://localhost:8000/docs](http://localhost:8000/docs)
+Dashboard Application available at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-### 2. Run with Docker Compose
+### 3. Docker Compose Setup
 ```bash
 docker compose up --build
 ```
-- Frontend: `http://localhost:3000`
+- Frontend SPA: `http://localhost:3000`
 - Backend API: `http://localhost:8000`
-
----
-
-## Team Integration Boundaries (M1–M6)
-
-Inter-module Python stubs are located in [`backend/modules_stub.py`](file:///c:/Users/Hp/Desktop/Audit%20lens%20_dashboard/backend/modules_stub.py).
-Teammates can plug in their module logic as follows:
-
-- **M1**: `m1_domain_wp514_mapper()`
-- **M2**: `m2_synthetic_dataset_loader()`
-- **M3**: `m3_extraction_engine()`
-- **M4**: `m4_math_engine()`
-- **M5**: `m5_consistency_prior_year_engine()`
-- **M6**: `m6_ai_grounded_layer()`
