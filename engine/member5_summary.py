@@ -7,6 +7,11 @@ def summarize_member5_results(results):
         if result["status"] == "PASS"
     )
 
+    fail_count = sum(
+        1 for result in results
+        if result["status"] == "FAIL"
+    )
+
     unusual_count = sum(
         1 for result in results
         if result["status"] == "UNUSUAL"
@@ -34,6 +39,7 @@ def summarize_member5_results(results):
         "summary": {
             "total_rules": total_rules,
             "pass": pass_count,
+            "fail": fail_count,
             "unusual": unusual_count,
             "review": review_count
         },
@@ -43,6 +49,10 @@ def summarize_member5_results(results):
             "pass": sum(
                 1 for result in consistency_results
                 if result["status"] == "PASS"
+            ),
+            "fail": sum(
+                1 for result in consistency_results
+                if result["status"] == "FAIL"
             ),
             "unusual": sum(
                 1 for result in consistency_results
@@ -59,6 +69,10 @@ def summarize_member5_results(results):
             "pass": sum(
                 1 for result in prior_year_results
                 if result["status"] == "PASS"
+            ),
+            "fail": sum(
+                1 for result in prior_year_results
+                if result["status"] == "FAIL"
             ),
             "unusual": sum(
                 1 for result in prior_year_results
