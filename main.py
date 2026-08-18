@@ -120,6 +120,7 @@ def main():
     data_file = sys.argv[1] if len(sys.argv) > 1 else "data/final_financial_data.json"
     output = run_member5_pipeline(data_file)
     print_report(output)
+    return output
 
 
 if __name__ == "__main__":
