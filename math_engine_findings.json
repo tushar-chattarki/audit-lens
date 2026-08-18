@@ -1,0 +1,595 @@
+{
+  "schema_version": "1.0",
+
+  "job_id": "JOB-001",
+  "bank_id": "GREENPEAK",
+  "bank_name": "GreenPeak Bank Ltd.",
+
+  "currency": "INR",
+  "unit": "crore",
+
+  "periods": [
+    "FY2025",
+    "FY2024"
+  ],
+
+  "statements": {
+
+    "balance_sheet": {
+
+      "assets": {
+        "cash_and_cash_equivalents": {
+          "FY2025": {
+            "value": 1250.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Cash and cash equivalents",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 980.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Cash and cash equivalents",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "investments": {
+          "FY2025": {
+            "value": 3000.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Investments",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 2750.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Investments",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "loans_and_advances": {
+          "FY2025": {
+            "value": 7000.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Loans and advances",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 6500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Loans and advances",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "total_assets": {
+          "FY2025": {
+            "value": 13500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total assets",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 12325.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total assets",
+              "period": "FY2024"
+            }
+          }
+        }
+      },
+
+      "liabilities": {
+
+        "deposits_from_customers": {
+          "FY2025": {
+            "value": 8500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Deposits from customers",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 7800.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Deposits from customers",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "total_liabilities": {
+          "FY2025": {
+            "value": 11500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total liabilities",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 10575.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total liabilities",
+              "period": "FY2024"
+            }
+          }
+        }
+      },
+
+      "equity": {
+
+        "share_capital": {
+          "FY2025": {
+            "value": 500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Share capital",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 500.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Share capital",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "retained_earnings": {
+          "FY2025": {
+            "value": 900.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Retained earnings",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 750.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Retained earnings",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "total_equity": {
+          "FY2025": {
+            "value": 2000.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total equity",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 1750.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Total equity",
+              "period": "FY2024"
+            }
+          }
+        }
+      }
+    },
+
+    "profit_and_loss": {
+
+      "income": {
+
+        "interest_income": {
+          "FY2025": {
+            "value": 1100.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Interest income",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 980.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Interest income",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "other_income": {
+          "FY2025": {
+            "value": 185.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Other income",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 42.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Other income",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "total_income": {
+          "FY2025": {
+            "value": 1985.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Total income",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 1642.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Total income",
+              "period": "FY2024"
+            }
+          }
+        }
+      },
+
+      "expenses": {
+
+        "interest_expense": {
+          "FY2025": {
+            "value": 600.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Interest expense",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 540.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Interest expense",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "total_expenses": {
+          "FY2025": {
+            "value": 1505.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Total expenses",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 1342.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Total expenses",
+              "period": "FY2024"
+            }
+          }
+        }
+      },
+
+      "profit": {
+
+        "profit_before_tax": {
+          "FY2025": {
+            "value": 480.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Profit before tax",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 300.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Profit before tax",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "tax_expense": {
+          "FY2025": {
+            "value": 120.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Tax expense",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 75.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Tax expense",
+              "period": "FY2024"
+            }
+          }
+        },
+
+        "net_income": {
+          "FY2025": {
+            "value": 360.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Net income",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 225.0,
+            "evidence": {
+              "doc_id": "greenpeak_fy25.pdf",
+              "page": 4,
+              "table": "Profit and Loss",
+              "row": "Net income",
+              "period": "FY2024"
+            }
+          }
+        }
+      }
+    },
+
+    "cash_flow": {
+
+      "opening_cash": {
+        "FY2025": {
+          "value": 980.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 5,
+            "table": "Cash Flow",
+            "row": "Opening cash",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "net_cash_from_operating_activities": {
+        "FY2025": {
+          "value": 620.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 5,
+            "table": "Cash Flow",
+            "row": "Net cash from operating activities",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "net_cash_from_investing_activities": {
+        "FY2025": {
+          "value": -360.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 5,
+            "table": "Cash Flow",
+            "row": "Net cash from investing activities",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "net_cash_from_financing_activities": {
+        "FY2025": {
+          "value": 30.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 5,
+            "table": "Cash Flow",
+            "row": "Net cash from financing activities",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "closing_cash": {
+        "FY2025": {
+          "value": 1270.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 5,
+            "table": "Cash Flow",
+            "row": "Closing cash",
+            "period": "FY2025"
+          }
+        }
+      }
+    },
+
+    "equity": {
+
+      "opening_equity": {
+        "FY2025": {
+          "value": 1750.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 6,
+            "table": "Statement of Changes in Equity",
+            "row": "Opening equity",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "net_income": {
+        "FY2025": {
+          "value": 360.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 6,
+            "table": "Statement of Changes in Equity",
+            "row": "Net income",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "dividends_paid": {
+        "FY2025": {
+          "value": 120.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 6,
+            "table": "Statement of Changes in Equity",
+            "row": "Dividends paid",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "closing_equity": {
+        "FY2025": {
+          "value": 2000.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 6,
+            "table": "Statement of Changes in Equity",
+            "row": "Closing equity",
+            "period": "FY2025"
+          }
+        }
+      }
+    },
+
+    "notes": {
+
+      "note_12_cash": {
+        "FY2025": {
+          "value": 1205.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 9,
+            "table": "Note 12",
+            "row": "Cash and cash equivalents",
+            "period": "FY2025"
+          }
+        }
+      },
+
+      "note_15_other_income": {
+        "FY2025": {
+          "value": 185.0,
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 10,
+            "table": "Note 15",
+            "row": "Other income",
+            "period": "FY2025"
+          }
+        },
+
+        "narrative": {
+          "text": "Other income includes a gain arising from the sale of investment property during FY2025.",
+          "evidence": {
+            "doc_id": "greenpeak_fy25.pdf",
+            "page": 10,
+            "table": "Note 15",
+            "row": "Narrative",
+            "period": "FY2025"
+          }
+        }
+      }
+    }
+  }
+}
