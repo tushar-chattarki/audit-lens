@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "job_id": "JOB-001",
+  "bank_id": "Horizon",
+  "bank_name": "Horizon NBFC",
+  "currency": "INR",
+  "unit": "lakh",
+  "periods": [
+    "FY2025",
+    "FY2024"
+  ],
+  "statements": {
+    "balance_sheet": {
+      "assets": {
+        "cash_and_cash_equivalents": {
+          "FY2025": {
+            "value": 3200.0,
+            "evidence": {
+              "doc_id": "horizon_financial_services_dummy_dataset.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Cash and Cash Equivalents",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 2800.0,
+            "evidence": {
+              "doc_id": "horizon_financial_services_dummy_dataset.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "Cash and Cash Equivalents",
+              "period": "FY2024"
+            }
+          },
+          "row_type": "line_item"
+        },
+        "total_assets": {
+          "FY2025": {
+            "value": 171000.0,
+            "evidence": {
+              "doc_id": "horizon_financial_services_dummy_dataset.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "TOTAL ASSETS",
+              "period": "FY2025"
+            }
+          },
+          "FY2024": {
+            "value": 150800.0,
+            "evidence": {
+              "doc_id": "horizon_financial_services_dummy_dataset.pdf",
+              "page": 2,
+              "table": "Balance Sheet",
+              "row": "TOTAL ASSETS",
+              "period": "FY2024"
+            }
+          },
+          "row_type": "total"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "review_metadata": {
+    "job_id": "REV-2025-001",
+    "bank_name": "GreenPeak Bank Ltd.",
+    "bank_id": "GREENPEAK",
+    "reporting_period": "FY2025",
+    "comparative_period": "FY2024",
+    "currency": "INR",
+    "unit": "Crores (Cr)",
+    "source_document_current": "GreenPeak_FY2025.pdf",
+    "source_document_prior": "GreenPeak_FY2024.pdf",
+    "review_date": "2026-08-16",
+    "prepared_by": "Audit Copilot Automated Engine",
+    "reviewed_by": "Pending Auditor Sign-off",
+    "overall_status": "EXCEPTIONS FOUND"
+  },
+  "summary_kpis": {
+    "total_findings": 5,
+    "exceptions": 4,
+    "passes": 1,
+    "high_severity": 2,
+    "medium_severity": 1,
+    "low_severity": 1,
+    "not_applicable": 0
+  },
+  "statement_summaries": [
+    {
+      "statement": "Balance Sheet",
+      "checks_performed": 2,
+      "passed": 0,
+      "failed": 2,
+      "warnings": 0,
+      "overall_status": "EXCEPTION"
+    },
+    {
+      "statement": "Profit & Loss",
+      "checks_performed": 2,
+      "passed": 1,
+      "failed": 1,
+      "warnings": 0,
+      "overall_status": "WARNING"
+    },
+    {
+      "statement": "Cash Flow & Notes",
+      "checks_performed": 1,
+      "passed": 0,
+      "failed": 1,
+      "warnings": 0,
+      "overall_status": "EXCEPTION"
+    }
+  ],
+  "canonical_metrics": {
+    "net_income": { "current": 21600, "prior": 13500, "change_pct": 60.0 },
+    "other_income": { "current": 185, "prior": 42, "change_pct": 340.5 },
+    "net_interest_income": { "current": 32500, "prior": 28966, "change_pct": 12.2 },
+    "total_assets": { "current": 124500, "prior": 110200, "change_pct": 12.98 },
+    "bs_cash": { "current": 1250, "prior": 980, "change_pct": 27.55 },
+    "note12_cash": { "current": 1205, "prior": 980, "change_pct": 22.96 },
+    "cash_difference": 45,
+    "bs_equation_assets": 12450,
+    "bs_equation_liab_equity": 12410,
+    "bs_equation_difference": 40
+  },
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "module": "language_engine",
+      "check": "spelling_grammar_check",
+      "statement": "Notes to Accounts",
+      "status": "exception",
+      "severity": "low",
+      "expected": "receivables",
+      "actual": "recievables",
+      "difference": null,
+      "evidence": [
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 9,
+          "table": "Note 7 - Advances & Receivables",
+          "row": "Management Narrative Paragraph 2",
+          "period": "FY2025"
+        }
+      ],
+      "ai_explanation": {
+        "label": "Grammar & Spelling Review",
+        "original_text": "Net interest income increased due to higher loan balances and recievables management.",
+        "flagged_issue": "Spelling error ('recievables')",
+        "suggested_revision": "Net interest income increased due to higher loan balances and receivables management.",
+        "confidence": 0.98,
+        "caveats": "Minor spelling correction in Note 7 text description.",
+        "wp514_target_field": "Note 7 Description",
+        "source_finding_id": "F-001"
+      },
+      "reviewer_status": "Open",
+      "reviewer_comment": ""
+    },
+    {
+      "finding_id": "F-002",
+      "module": "consistency_engine",
+      "check": "cash_cross_statement_match",
+      "statement": "Balance Sheet vs Note 12",
+      "status": "exception",
+      "severity": "high",
+      "expected": 1205,
+      "actual": 1250,
+      "difference": 45,
+      "evidence": [
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 2,
+          "table": "Balance Sheet",
+          "row": "Cash & Cash Equivalents",
+          "period": "FY2025"
+        },
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 9,
+          "table": "Note 12 - Cash Breakup",
+          "row": "Closing Cash & Equivalents",
+          "period": "FY2025"
+        }
+      ],
+      "ai_explanation": {
+        "label": "Cross-Statement Cash Reconciliation Anomaly",
+        "text": "Cash and cash equivalents reported on the Balance Sheet (₹1,250 Cr) differs from Closing Cash in Cash Flow / Note 12 (₹1,205 Cr) by ₹45 Cr. This discrepancy may indicate an unallocated cash item or timing difference in note disclosures requiring reconciliation.",
+        "confidence": 0.92,
+        "caveats": "Suggested explanation based on Note 12 disclosure reconciliation; requires reviewer verification with Treasury management.",
+        "wp514_target_field": "Cash & Cash Equivalents Reconciliation",
+        "source_finding_id": "F-002"
+      },
+      "reviewer_status": "Open",
+      "reviewer_comment": ""
+    },
+    {
+      "finding_id": "F-003",
+      "module": "prior_year_engine",
+      "check": "yoy_material_movement",
+      "statement": "Profit & Loss",
+      "status": "exception",
+      "severity": "medium",
+      "expected": 42,
+      "actual": 185,
+      "difference": 143,
+      "evidence": [
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 4,
+          "table": "Profit & Loss",
+          "row": "Other Income",
+          "period": "FY2025"
+        }
+      ],
+      "ai_explanation": {
+        "label": "Material YoY Movement Narrative",
+        "text": "Other Income increased by +340.5% YoY (from ₹42 Cr in FY2024 to ₹185 Cr in FY2025). Note 15 indicates this movement is primarily driven by a one-off non-operating gain of ₹138 Cr from the sale of an investment property.",
+        "confidence": 0.95,
+        "caveats": "Suggested anomaly explanation based on Note 15 text; reviewer should confirm non-recurring nature for financial forecasting.",
+        "wp514_target_field": "Other Income Note 15 Analysis",
+        "source_finding_id": "F-003"
+      },
+      "reviewer_status": "Open",
+      "reviewer_comment": ""
+    },
+    {
+      "finding_id": "F-004",
+      "module": "math_engine",
+      "check": "balance_sheet_equation",
+      "statement": "Balance Sheet",
+      "status": "exception",
+      "severity": "high",
+      "expected": 12410,
+      "actual": 12450,
+      "difference": 40,
+      "evidence": [
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 2,
+          "table": "Balance Sheet",
+          "row": "Total Assets",
+          "period": "FY2025"
+        },
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 2,
+          "table": "Balance Sheet",
+          "row": "Total Liabilities & Equity",
+          "period": "FY2025"
+        }
+      ],
+      "ai_explanation": {
+        "label": "Net Income Movement Analysis",
+        "text": "Net Income grew by +60.0% YoY (from ₹13,500 Cr in FY2024 to ₹21,600 Cr in FY2025). The movement is supported by operating expansion (+12.2% Net Interest Income) and the non-operating property sale recognized in Other Income.",
+        "confidence": 0.94,
+        "caveats": "High growth rate driven by both core expansion and non-recurring gain; reviewer to validate sustainability.",
+        "wp514_target_field": "Profitability Review Summary",
+        "source_finding_id": "F-004"
+      },
+      "reviewer_status": "Open",
+      "reviewer_comment": ""
+    },
+    {
+      "finding_id": "F-005",
+      "module": "math_engine",
+      "check": "pnl_cross_cast",
+      "statement": "Profit & Loss",
+      "status": "pass",
+      "severity": "low",
+      "expected": 21600,
+      "actual": 21600,
+      "difference": 0,
+      "evidence": [
+        {
+          "doc_id": "GreenPeak_FY2025.pdf",
+          "page": 4,
+          "table": "Profit & Loss",
+          "row": "Net Income",
+          "period": "FY2025"
+        }
+      ],
+      "ai_explanation": null,
+      "reviewer_status": "Reviewed",
+      "reviewer_comment": "Verified P&L mathematical cross-cast."
+    }
+  ],
+  "overall_ai_summary": {
+    "text": "Automated review of GreenPeak Bank Ltd. FY2025 financial statements identified 4 exceptions out of 5 checks performed. Key issues include a ₹40 Cr Balance Sheet equation mismatch, a ₹45 Cr Cash reconciliation discrepancy between the Balance Sheet and Note 12, a material +340.5% spike in Other Income (explained by a Note 15 property sale), and a minor spelling error in Note 7. Mathematical P&L cross-cast tied out successfully. All AI narrative explanations are suggestions pending final human reviewer sign-off on WP-514.",
+    "caveats": "Generated strictly from deterministic rule findings; human reviewer sign-off mandatory.",
+    "label": "Executive AI Review Summary"
+  },
+  "wp514": {
+    "engagement_details": {
+      "job_id": "REV-2025-001",
+      "bank_name": "GreenPeak Bank Ltd.",
+      "bank_id": "GREENPEAK",
+      "reporting_period": "FY2025",
+      "comparative_period": "FY2024",
+      "currency": "INR",
+      "unit": "Crores (Cr)",
+      "source_document_current": "GreenPeak_FY2025.pdf",
+      "source_document_prior": "GreenPeak_FY2024.pdf",
+      "review_date": "2026-08-16",
+      "prepared_by": "Audit Copilot Automated Engine",
+      "reviewed_by": "Senior Reviewer / Lead Auditor",
+      "overall_status": "EXCEPTIONS FOUND"
+    },
+    "financial_statement_summary": [
+      {
+        "statement": "Balance Sheet",
+        "checks_performed": 2,
+        "passed": 0,
+        "failed": 2,
+        "warnings": 0,
+        "overall_status": "EXCEPTION"
+      },
+      {
+        "statement": "Profit & Loss",
+        "checks_performed": 2,
+        "passed": 1,
+        "failed": 1,
+        "warnings": 0,
+        "overall_status": "WARNING"
+      },
+      {
+        "statement": "Cash Flow & Notes",
+        "checks_performed": 1,
+        "passed": 0,
+        "failed": 1,
+        "warnings": 0,
+        "overall_status": "EXCEPTION"
+      }
+    ],
+    "math_checks": [
+      {
+        "check_id": "MC-001",
+        "statement": "Balance Sheet",
+        "check_description": "Total Assets = Total Liabilities + Total Equity",
+        "formula_rule": "Assets - (Liab + Equity)",
+        "reported_result": 124500,
+        "calculated_result": 124100,
+        "variance": 400,
+        "status": "exception"
+      },
+      {
+        "check_id": "MC-002",
+        "statement": "Profit & Loss",
+        "check_description": "Total Income - Total Expenses = Net Profit",
+        "formula_rule": "Income - Expense",
+        "reported_result": 21600,
+        "calculated_result": 21600,
+        "variance": 0,
+        "status": "pass"
+      }
+    ],
+    "prior_year_checks": [
+      {
+        "statement": "Profit & Loss",
+        "line_item": "Other Income",
+        "current_year_value": 185,
+        "prior_year_value": 42,
+        "absolute_change": 143,
+        "percentage_change": 340.5,
+        "review_threshold": "> 20% & > ₹5 Cr",
+        "flag": true,
+        "reason_for_flag": "Material spike due to non-operating property sale per Note 15",
+        "source_reference": "P&L Page 4 / Note 15 Page 11"
+      },
+      {
+        "statement": "Profit & Loss",
+        "line_item": "Net Income",
+        "current_year_value": 21600,
+        "prior_year_value": 13500,
+        "absolute_change": 8100,
+        "percentage_change": 60.0,
+        "review_threshold": "> 15%",
+        "flag": true,
+        "reason_for_flag": "Strong growth driven by NII expansion and non-recurring gain",
+        "source_reference": "P&L Page 4"
+      }
+    ],
+    "banking_analytics": [
+      {
+        "metric": "Net Interest Margin (NIM) Proxy",
+        "current_year": 3.25,
+        "prior_year": 3.10,
+        "change": "+15 bps",
+        "threshold": "±25 bps",
+        "status": "PASS",
+        "explanation": "Stable margin expansion supported by loan book growth"
+      },
+      {
+        "metric": "Cash to Total Assets Ratio",
+        "current_year": 1.00,
+        "prior_year": 0.89,
+        "change": "+11 bps",
+        "threshold": "±10 bps",
+        "status": "FLAGGED",
+        "explanation": "Requires reconciliation due to Note 12 variance of ₹45 Cr"
+      }
+    ],
+    "field_mappings": [
+      {
+        "wp514_field": "Total Assets",
+        "source_statement": "Balance Sheet",
+        "source_line_item": "Total Assets",
+        "extracted_value": 124500,
+        "validation": "Math Check MC-001 Failed",
+        "exception_id": "F-004"
+      },
+      {
+        "wp514_field": "Cash & Cash Equivalents",
+        "source_statement": "Balance Sheet",
+        "source_line_item": "Cash & Cash Equivalents",
+        "extracted_value": 1250,
+        "validation": "Cross-Statement Match Failed (Note 12 = 1205)",
+        "exception_id": "F-002"
+      },
+      {
+        "wp514_field": "Other Income",
+        "source_statement": "Profit & Loss",
+        "source_line_item": "Other Income",
+        "extracted_value": 185,
+        "validation": "YoY Threshold Flagged (+340.5%)",
+        "exception_id": "F-003"
+      }
+    ],
+    "overall_conclusion": {
+      "overall_review_result": "EXCEPTIONS IDENTIFIED — REQUIRES MANAGEMENT RECONCILIATION",
+      "total_exceptions": 4,
+      "critical_exceptions": 0,
+      "high_exceptions": 2,
+      "medium_exceptions": 1,
+      "key_issues_requiring_attention": [
+        "Reconcile ₹40 Cr Balance Sheet equation mismatch between Total Assets and Total Liabilities & Equity",
+        "Reconcile ₹45 Cr discrepancy between Balance Sheet Cash & Cash Equivalents (₹1,250 Cr) and Note 12 Closing Cash (₹1,205 Cr)",
+        "Confirm non-recurring nature of ₹138 Cr property sale gain in Note 15 for Other Income"
+      ],
+      "ai_generated_review_summary": "Automated review identified 4 exceptions out of 5 checks. High priority focus required for Balance Sheet casting and Note 12 cash reconciliation.",
+      "final_reviewer_decision": "REQUIRES REVISION BY FINANCE TEAM",
+      "reviewer_comments": "The mathematical discrepancy of ₹40 Cr in the Balance Sheet and ₹45 Cr cash mismatch in Note 12 must be clarified by the bank's finance team prior to final sign-off."
+    }
+  }
+}
