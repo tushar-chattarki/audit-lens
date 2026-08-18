@@ -1,0 +1,1034 @@
+{
+  "schema_version": "2.0",
+  "job_id": null,
+  "bank_id": null,
+  "bank_name": null,
+  "currency": "INR",
+  "unit": "lakh",
+  "periods": [
+    "FY2025",
+    "FY2024"
+  ],
+  "statements": {
+    "balance_sheet": {
+      "assets": {
+        "cash_and_cash_equivalents": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "bank_balances_other_than_cash_and_cash_equivalents": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "cash_on_hand": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "balances_with_banks": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "fixed_deposits_with_banks": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "investments": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "loans_and_advances": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "loans": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "term_loans": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "working_capital_loans": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "government_securities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "mutual_funds": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "security_deposits": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "interest_accrued_but_not_due": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "property_plant_and_equipment": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "intangible_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "deferred_tax_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_non_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "total_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_non_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "additional_items": {}
+      },
+      "liabilities": {
+        "deposits_from_customers": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "trade_payables": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "debt_securities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "borrowings": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "subordinated_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "current_tax_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "provisions": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_non_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "total_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_non_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "additional_items": {}
+      },
+      "equity": {
+        "share_capital": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "equity_share_capital": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "retained_earnings": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_equity": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "securities_premium": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "general_reserve": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "statutory_reserve": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "total_equity": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_liabilities_and_equity": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "additional_items": {}
+      }
+    },
+    "profit_and_loss": {
+      "income": {
+        "interest_income": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "fee_and_commission_income": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "net_gain_on_fair_value_changes": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_income": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "total_revenue_from_operations": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "total_income": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "additional_items": {}
+      },
+      "expenses": {
+        "interest_expense": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "finance_costs": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "impairment_on_financial_instruments": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "employee_benefits_expenses": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "depreciation_and_amortisation": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "other_expenses": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "total_expenses": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "total"
+        },
+        "additional_items": {}
+      },
+      "profit": {
+        "profit_before_tax": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "tax_expense": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "net_income": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "profit_for_the_year": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "FY2024": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "additional_items": {}
+      }
+    },
+    "cash_flow": {
+      "operating_activities": {
+        "profit_for_the_year": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_loans": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_investments": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_other_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_bank_balances_other_than_cash_and_cash_equivalents": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_other_non_financial_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "in_deferred_tax_assets": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_trade_payables": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_other_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_current_tax_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_provisions": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_other_non_financial_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "net_cash_from_operating_activities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "additional_items": {}
+      },
+      "investing_activities": {
+        "net_cash_from_investing_activities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "additional_items": {}
+      },
+      "financing_activities": {
+        "increase_in_debt_securities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_borrowings": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "increase_in_subordinated_liabilities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "net_cash_from_financing_activities": {
+          "FY2025": {
+            "value": null,
+            "reason": "not_found",
+            "evidence": null
+          },
+          "row_type": "line_item"
+        },
+        "additional_items": {}
+      },
+      "opening_cash": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "net_increase_in_cash_and_cash_equivalents": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "closing_cash": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      }
+    },
+    "equity": {
+      "opening_equity": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "net_income": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "dividends_paid": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "closing_equity": {
+        "FY2025": {
+          "value": null,
+          "reason": "not_found",
+          "evidence": null
+        },
+        "row_type": "line_item"
+      },
+      "additional_items": {}
+    },
+    "notes": {
+      "schedules": {},
+      "disclosures": {}
+    }
+  }
+}

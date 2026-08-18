@@ -1,0 +1,23 @@
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/__pycache__/
+backend/.pytest_cache/
+*.log
+
+# Temp inspection scripts & dumps
+backend/dump_all*.py
+backend/inspect_*.py
+backend/remote_inspection_dump*.txt
+backend/scratch_*.py
+
+# OS
+.DS_Store
+Thumbs.db
