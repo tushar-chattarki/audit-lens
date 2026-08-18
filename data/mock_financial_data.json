@@ -1,0 +1,63 @@
+{
+    "bank_name": "ABC Bank",
+    "current_year": 2025,
+    "prior_year": 2024,
+
+    "balance_sheet": {
+        "opening_equity": 6500,
+        "cash": 5000,
+        "total_assets": 50000,
+        "total_liabilities": 42000,
+        "total_equity": 8000
+    },
+
+    "income_statement": {
+        "net_income": 2500,
+        "depreciation": 500,
+        "tax_expense": 700,
+        "dividends": 1000
+    },
+
+    "cash_flow": {
+        "beginning_cash": 3000,
+        "ending_cash": 5000,
+        "net_change_cash": 2000
+    },
+
+    "notes": {
+        "cash": 5000,
+        "depreciation": 500,
+        "tax_expense": 700,
+        "dividends": 1000
+    },
+
+    "prior_year_data": {
+        "balance_sheet": {
+            "opening_equity": 6000,
+            "cash": 4000,
+            "total_assets": 45000,
+            "total_liabilities": 38000,
+            "total_equity": 7000
+        },
+
+        "income_statement": {
+            "net_income": 2000,
+            "depreciation": 450,
+            "tax_expense": 600,
+            "dividends": 800
+        },
+
+        "cash_flow": {
+            "beginning_cash": 2500,
+            "ending_cash": 4000,
+            "net_change_cash": 1500
+        },
+
+        "notes": {
+            "cash": 4000,
+            "depreciation": 450,
+            "tax_expense": 600,
+            "dividends": 800
+        }
+    }
+}
