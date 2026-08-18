@@ -11,6 +11,11 @@ from pdf_audit_engine import parse_and_audit_pdf
 
 router = APIRouter(prefix="/api", tags=["Review Automation & Jobs"])
 
+import tempfile
+from pathlib import Path
+from extraction.extraction_router import extract_document
+from integration_orchestrator import run_full_pipeline
+
 # --------------------------------------------------------------------------
 # 1. Job Creation / Upload Endpoints (POST /api/jobs & POST /api/review)
 # --------------------------------------------------------------------------
@@ -28,7 +33,7 @@ async def create_review_job(
     """
     POST /api/jobs or POST /api/review
     Upload current and comparative financial statement files and initiate audit review job.
-    Executes the complete Member 3 -> Member 4 -> Member 5 -> Member 6 -> Member 1 pipeline.
+    Executes the complete Member 3 -> Member 4 -> Member 5 -> Member 6 -> Member 7 pipeline.
     """
     fn = current_file.filename.lower() if current_file else ""
     bn = bank_name.lower()
@@ -45,22 +50,61 @@ async def create_review_job(
     if current_file:
         file_bytes = await current_file.read()
 
-    # If the user uploaded a real PDF file, execute the universal PDF extraction & audit engine
-    if file_bytes and len(file_bytes) > 200 and fn.endswith(".pdf"):
-        job_data = parse_and_audit_pdf(
-            file_bytes,
-            user_bank_name=bank_name,
-            user_reporting_period=reporting_period,
-            user_comparative_period=comparative_period,
-            user_currency=currency,
-            user_unit=unit,
-            filename=current_file.filename
-        )
-        job_data["review_metadata"]["job_id"] = job_id
-        if "wp514" in job_data and "engagement_details" in job_data["wp514"]:
-            job_data["wp514"]["engagement_details"]["job_id"] = job_id
-        save_job(job_id, job_data)
-        entity_name = job_data["review_metadata"]["bank_name"]
+    # If user uploaded a PDF or Excel file, run extraction router & full pipeline
+    if file_bytes and len(file_bytes) > 200:
+        temp_dir = Path(tempfile.gettempdir()) / "audit_lens_uploads"
+        temp_dir.mkdir(parents=True, exist_ok=True)
+        temp_path = temp_dir / current_file.filename
+        with open(temp_path, "wb") as f:
+            f.write(file_bytes)
+
+        try:
+            extracted = extract_document(
+                file_path=temp_path,
+                job_id=job_id,
+                bank_name=bank_name
+            )
+            canonical = extracted.get("canonical", {})
+            metadata = {
+                "job_id": job_id,
+                "bank_name": bank_name,
+                "reporting_period": reporting_period,
+                "comparative_period": comparative_period,
+                "currency": currency,
+                "unit": unit,
+                "source_document_current": current_file.filename,
+                "source_document_prior": prior_file.filename if prior_file else current_file.filename,
+                "review_date": datetime.date.today().isoformat(),
+                "prepared_by": "Audit Lens Engine (Members 1-7)",
+                "reviewed_by": "Pending Auditor Sign-off"
+            }
+            job_data = run_full_pipeline(
+                canonical=canonical,
+                metadata=metadata,
+                doc_id=current_file.filename
+            )
+            save_job(job_id, job_data)
+            entity_name = bank_name
+        except Exception as err:
+            # Fallback parsing if layout is unruled / non-standard
+            job_data = parse_and_audit_pdf(
+                file_bytes,
+                user_bank_name=bank_name,
+                user_reporting_period=reporting_period,
+                user_comparative_period=comparative_period,
+                user_currency=currency,
+                user_unit=unit,
+                filename=current_file.filename
+            )
+            job_data["review_metadata"]["job_id"] = job_id
+            save_job(job_id, job_data)
+            entity_name = job_data["review_metadata"]["bank_name"]
+        finally:
+            if temp_path.exists():
+                try:
+                    temp_path.unlink()
+                except Exception:
+                    pass
     else:
         # Fallback to seeded dataset or fixture
         job_data = get_job(job_id)
