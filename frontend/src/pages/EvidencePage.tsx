@@ -265,17 +265,21 @@ export const EvidencePage: React.FC = () => {
                       ];
                     }
 
+                    const isPass = finding.status === 'pass' || (finding.status as string) === 'passed';
+
                     return rows.map((r, idx) => (
                       <tr
                         key={idx}
                         className={
                           r.highlight
-                            ? 'bg-amber-100/80 border-l-4 border-l-amber-600 font-semibold text-slate-900'
+                            ? isPass
+                              ? 'bg-emerald-100/80 border-l-4 border-l-emerald-600 font-semibold text-slate-900'
+                              : 'bg-amber-100/80 border-l-4 border-l-amber-600 font-semibold text-slate-900'
                             : 'hover:bg-slate-50 text-slate-700'
                         }
                       >
                         <td className="py-2 pr-2 font-medium">{r.label}</td>
-                        <td className={`text-right font-mono py-2 ${r.highlight ? 'font-bold text-amber-950' : ''}`}>
+                        <td className={`text-right font-mono py-2 ${r.highlight ? (isPass ? 'font-bold text-emerald-950' : 'font-bold text-amber-950') : ''}`}>
                           {fmtVal(r.current)}
                         </td>
                         <td className={`text-right font-mono py-2 ${r.highlight ? 'font-semibold text-slate-800' : 'text-slate-500'}`}>
@@ -288,18 +292,35 @@ export const EvidencePage: React.FC = () => {
               </table>
 
               {/* Highlight Target Bounding Annotation Callout */}
-              <div className="bg-amber-50 border-2 border-dashed border-amber-500 p-3 space-y-1">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900">
-                    <AlertCircle className="w-4 h-4 text-amber-700" />
-                    <span>CELL EVIDENCE POINTER HIGHLIGHT</span>
+              {(() => {
+                const isPass = finding.status === 'pass' || (finding.status as string) === 'passed';
+                return (
+                  <div className={`p-3 space-y-1 border-2 border-dashed ${
+                    isPass ? 'bg-emerald-50 border-emerald-500 text-emerald-950' : 'bg-amber-50 border-amber-500 text-amber-950'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className={`flex items-center gap-1.5 text-xs font-bold ${
+                        isPass ? 'text-emerald-900' : 'text-amber-900'
+                      }`}>
+                        {isPass ? (
+                          <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                        ) : (
+                          <AlertCircle className="w-4 h-4 text-amber-700" />
+                        )}
+                        <span>{isPass ? 'VERIFIED SOURCE EVIDENCE POINTER' : 'CELL EVIDENCE POINTER HIGHLIGHT'}</span>
+                      </div>
+                      <span className={`text-[10px] font-mono font-bold ${
+                        isPass ? 'text-emerald-800' : 'text-amber-800'
+                      }`}>Target: {currentEvidence.row}</span>
+                    </div>
+                    <p className="text-[11px] leading-relaxed">
+                      {isPass
+                        ? `Check '${finding.check}' verified source evidence on Page ${currentEvidence.page} with zero variance.`
+                        : `Check '${finding.check}' flagged variance between reported value and computed schedule reconciliation.`}
+                    </p>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-amber-800">Target: {currentEvidence.row}</span>
-                </div>
-                <p className="text-[11px] text-amber-950">
-                  Mathematical check '{finding.check}' flagged variance between reported value and computed schedule reconciliation.
-                </p>
-              </div>
+                );
+              })()}
 
               <div className="text-[10px] text-slate-400 font-mono text-center pt-8">
                 --- Audit Lens Evidence Verification Engine (WP-514 Standard) ---
