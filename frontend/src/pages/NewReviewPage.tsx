@@ -142,9 +142,6 @@ export const NewReviewPage: React.FC = () => {
                 className="w-full text-xs px-3 py-2 border border-slate-300 rounded-xs bg-white focus:ring-1 focus:ring-blue-800 outline-none"
               >
                 <option value="INR">INR (₹ - Indian Rupee)</option>
-                <option value="USD">USD ($ - US Dollar)</option>
-                <option value="EUR">EUR (€ - Euro)</option>
-                <option value="GBP">GBP (£ - British Pound)</option>
               </select>
             </div>
 
@@ -157,10 +154,6 @@ export const NewReviewPage: React.FC = () => {
               >
                 <option value="Crores (Cr)">Crores (Cr)</option>
                 <option value="Lakhs">Lakhs</option>
-                <option value="Millions (Mn)">Millions (Mn)</option>
-                <option value="Billions (Bn)">Billions (Bn)</option>
-                <option value="Thousands (Th)">Thousands (Th)</option>
-                <option value="Absolute Units">Absolute Units</option>
               </select>
             </div>
           </div>
