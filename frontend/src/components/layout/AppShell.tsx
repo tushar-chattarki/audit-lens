@@ -27,6 +27,10 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
   const [llmStatus, setLlmStatus] = useState<'ACTIVE' | 'INACTIVE'>('INACTIVE');
   const [llmModel, setLlmModel] = useState<string>('');
 
+  const urlJobId = location.pathname.match(/\/review\/([^\/]+)/)?.[1];
+  const activeJobId = jobId || (urlJobId !== 'new' ? urlJobId : undefined);
+  const effectiveJobId = activeJobId || 'REV-2025-001';
+
   useEffect(() => {
     fetchHealth()
       .then((res) => {
@@ -42,15 +46,14 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
       });
   }, []);
 
-
-  // Fetch review metadata and findings from API whenever jobId changes,
+  // Fetch review metadata and findings from API whenever activeJobId changes,
   // so the header bar always reflects the current job's bank name, periods, and evidence ID
   useEffect(() => {
-    if (!jobId) {
+    if (!activeJobId) {
       setMetadata(undefined);
       return;
     }
-    fetchReview(jobId)
+    fetchReview(activeJobId)
       .then((res) => {
         if (res?.review_metadata) {
           setMetadata(res.review_metadata);
@@ -62,7 +65,7 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
       .catch(() => {
         // Silently fall back to defaults
       });
-  }, [jobId]);
+  }, [activeJobId]);
 
   // Also accept prop overrides
   useEffect(() => {
@@ -70,7 +73,6 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
   }, [propMetadata]);
 
   const isNewReviewPage = location.pathname === '/review/new';
-  const effectiveJobId = jobId || 'REV-2025-001';
 
   const navItems = [
     { path: `/review/new`, label: 'New Review', icon: FilePlus },
