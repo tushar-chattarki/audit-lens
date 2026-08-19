@@ -84,9 +84,35 @@ export const EvidencePage: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="flex items-center justify-between">
                 <span className="font-mono font-bold text-blue-900">{finding.finding_id}</span>
-                <span className="bg-red-100 text-red-900 border border-red-300 text-[10px] font-bold px-2 py-0.5 uppercase">
-                  {finding.severity} SEVERITY
-                </span>
+                {(() => {
+                  const statusStr = (finding.status || '').toLowerCase();
+                  if (statusStr === 'pass' || statusStr === 'passed') {
+                    return (
+                      <span className="bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-bold px-2 py-0.5 uppercase">
+                        PASSED ✓
+                      </span>
+                    );
+                  }
+                  if (statusStr === 'warning' || statusStr === 'unusual') {
+                    return (
+                      <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold px-2 py-0.5 uppercase">
+                        WARNING
+                      </span>
+                    );
+                  }
+                  if (statusStr === 'not_applicable' || statusStr === 'na') {
+                    return (
+                      <span className="bg-slate-100 text-slate-700 border border-slate-300 text-[10px] font-bold px-2 py-0.5 uppercase">
+                        NOT APPLICABLE
+                      </span>
+                    );
+                  }
+                  return (
+                    <span className="bg-red-100 text-red-900 border border-red-300 text-[10px] font-bold px-2 py-0.5 uppercase">
+                      {finding.severity || 'HIGH'} SEVERITY
+                    </span>
+                  );
+                })()}
               </div>
               <p className="font-semibold text-slate-900">{finding.check}</p>
               <div className="text-slate-600">Statement: {finding.statement}</div>
