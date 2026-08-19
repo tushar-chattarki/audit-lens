@@ -9,6 +9,7 @@ import {
   FileSpreadsheet,
   Building2,
   ShieldAlert,
+  CheckCircle2,
   Clock
 } from 'lucide-react';
 import { ReviewMetadata } from '../../types/review';
