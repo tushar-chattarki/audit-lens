@@ -67,11 +67,12 @@ export const OverviewPage: React.FC = () => {
   }
 
   const { review_metadata, summary_kpis, statement_summaries, overall_ai_summary, wp514 } = data;
+  const isPassed = summary_kpis.exceptions === 0 || (review_metadata.overall_status || '').toUpperCase().includes('PASSED') || (review_metadata.overall_status || '').toUpperCase().includes('CLEAN');
 
   return (
     <div className="space-y-6">
       {/* Top Header Banner — Financial Statement Review Workspace */}
-      <div className="bg-white border border-slate-200 p-5 shadow-sm border-l-4 border-l-red-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className={`bg-white border border-slate-200 p-5 shadow-sm border-l-4 ${isPassed ? 'border-l-emerald-600' : 'border-l-red-700'} flex flex-col md:flex-row md:items-center justify-between gap-4`}>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-[10px] font-mono uppercase bg-slate-100 text-slate-700 px-2 py-0.5 border border-slate-300 font-semibold">
@@ -94,10 +95,20 @@ export const OverviewPage: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
             <div className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Overall Review Status</div>
-            <div className="text-xs font-bold text-red-700">Action Required</div>
+            <div className={`text-xs font-bold ${isPassed ? 'text-emerald-700' : 'text-red-700'}`}>
+              {isPassed ? 'Tied Out Clean' : 'Action Required'}
+            </div>
           </div>
-          <div className="bg-red-50 border border-red-300 text-red-900 px-4 py-2.5 flex items-center gap-2 font-bold text-xs uppercase tracking-wider shadow-xs">
-            <ShieldAlert className="w-5 h-5 text-red-700" />
+          <div className={`px-4 py-2.5 flex items-center gap-2 font-bold text-xs uppercase tracking-wider shadow-xs border ${
+            isPassed
+              ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
+              : 'bg-red-50 border-red-300 text-red-900'
+          }`}>
+            {isPassed ? (
+              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+            ) : (
+              <ShieldAlert className="w-5 h-5 text-red-700" />
+            )}
             <span>{review_metadata.overall_status}</span>
           </div>
         </div>

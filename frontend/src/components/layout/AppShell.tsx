@@ -111,10 +111,24 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
                 <span className="font-mono text-slate-200">{jobId}</span>
               </div>
 
-              <div className="bg-red-900/80 border border-red-700 text-red-200 px-2.5 py-1 font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
-                <ShieldAlert className="w-3.5 h-3.5" />
-                <span>{metadata?.overall_status || 'EXCEPTIONS FOUND'}</span>
-              </div>
+              {(() => {
+                const statusStr = (metadata?.overall_status || '').toUpperCase();
+                const isPassedHeader = statusStr.includes('PASSED') || statusStr.includes('CLEAN');
+                return (
+                  <div className={`border px-2.5 py-1 font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 ${
+                    isPassedHeader
+                      ? 'bg-emerald-950/80 border-emerald-800 text-emerald-300'
+                      : 'bg-red-950/80 border-red-800 text-red-300'
+                  }`}>
+                    {isPassedHeader ? (
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    ) : (
+                      <ShieldAlert className="w-3.5 h-3.5 text-red-400" />
+                    )}
+                    <span>{metadata?.overall_status || 'PASSED WITH NO EXCEPTIONS'}</span>
+                  </div>
+                );
+              })()}
             </div>
           )}
 
