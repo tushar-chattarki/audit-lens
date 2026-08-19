@@ -38,6 +38,20 @@ OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2:latest")
 OLLAMA_TIMEOUT = int(os.environ.get("OLLAMA_TIMEOUT", "60"))
 
 
+def check_ollama_status(host: str = OLLAMA_HOST) -> bool:
+    """
+    Sends a lightweight GET request to the Ollama server to verify if it is active.
+    """
+    import urllib.request
+    try:
+        req = urllib.request.Request(host, method="GET")
+        with urllib.request.urlopen(req, timeout=1.0) as response:
+            return response.status == 200
+    except Exception:
+        return False
+
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SYSTEM PROMPT — shared across all three sub-tasks
 # Master instruction governing the LLM's behaviour in every call.
@@ -179,8 +193,8 @@ def run_grammar_review(canonical_json: dict) -> list[dict]:
             continue
 
         narrative_text = narrative["text"]
-        evidence       = narrative.get("evidence", {})
-        page           = evidence.get("page", "unknown")
+        evidence       = narrative.get("evidence") or {}
+        page           = evidence.get("page", "unknown") if isinstance(evidence, dict) else "unknown"
 
         canonical_snippet = {}
         for period_key in canonical_json.get("periods", []):
@@ -598,8 +612,10 @@ def _find_value_in_statement(stmt_data: dict, row_label: str, period: str):
         for key, val in stmt_data.items():
             if isinstance(val, dict):
                 if period in val and isinstance(val[period], dict):
-                    ev = val[period].get("evidence", {})
-                    if ev.get("row", "").lower() == row_label.lower():
+                    ev = val[period].get("evidence")
+                    if isinstance(ev, dict) and ev.get("row", "").lower() == row_label.lower():
+                        return val[period].get("value")
+                    elif key.lower() == row_label.lower():
                         return val[period].get("value")
                 result = _find_value_in_statement(val, row_label, period)
                 if result is not None:

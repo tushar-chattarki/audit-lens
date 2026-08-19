@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import review
+from ai_layer import check_ollama_status, OLLAMA_MODEL
 
 app = FastAPI(
     title="Audit Lens — Banking Financial Statement Review Automation API",
@@ -23,13 +24,17 @@ app.include_router(review.router)
 @app.get("/health")
 @app.get("/api/health")
 def root():
+    llm_active = check_ollama_status()
     return {
         "service": "Audit Lens — Banking Financial Statement Review Automation Backend",
         "status": "HEALTHY",
         "version": "1.0.0",
-        "standard": "WP-514 Working Paper"
+        "standard": "WP-514 Working Paper",
+        "llm_status": "ACTIVE" if llm_active else "INACTIVE",
+        "llm_model": OLLAMA_MODEL
     }
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+

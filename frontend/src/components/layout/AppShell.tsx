@@ -12,7 +12,7 @@ import {
   Clock
 } from 'lucide-react';
 import { ReviewMetadata } from '../../types/review';
-import { fetchReview } from '../../services/api';
+import { fetchReview, fetchHealth } from '../../services/api';
 import { AuditLensLogo } from '../common/AuditLensLogo';
 
 interface AppShellProps {
@@ -24,6 +24,24 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
   const location = useLocation();
   const [metadata, setMetadata] = useState<ReviewMetadata | undefined>(propMetadata);
   const [firstFindingId, setFirstFindingId] = useState<string>('F-002');
+  const [llmStatus, setLlmStatus] = useState<'ACTIVE' | 'INACTIVE'>('INACTIVE');
+  const [llmModel, setLlmModel] = useState<string>('');
+
+  useEffect(() => {
+    fetchHealth()
+      .then((res) => {
+        if (res.llm_status === 'ACTIVE') {
+          setLlmStatus('ACTIVE');
+          setLlmModel(res.llm_model || 'Ollama Active');
+        } else {
+          setLlmStatus('INACTIVE');
+        }
+      })
+      .catch(() => {
+        setLlmStatus('INACTIVE');
+      });
+  }, []);
+
 
   // Fetch review metadata and findings from API whenever jobId changes,
   // so the header bar always reflects the current job's bank name, periods, and evidence ID
@@ -78,26 +96,43 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
           </span>
         </div>
 
-        {/* Bank & Active Review Meta */}
-        {!isNewReviewPage && jobId && (
-          <div className="flex items-center gap-4 text-xs text-slate-300">
-            <div className="flex items-center gap-1.5 bg-slate-800 px-2.5 py-1 border border-slate-700">
-              <span className="text-slate-400 font-medium">Bank:</span>
-              <span className="font-semibold text-white">{metadata?.bank_name || '—'}</span>
-              <span className="text-slate-400 font-mono">({metadata?.reporting_period || '—'} vs {metadata?.comparative_period || '—'})</span>
-            </div>
+        <div className="flex items-center gap-3.5">
+          {/* Bank & Active Review Meta */}
+          {!isNewReviewPage && jobId && (
+            <div className="flex items-center gap-4 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 bg-slate-800 px-2.5 py-1 border border-slate-700">
+                <span className="text-slate-400 font-medium">Bank:</span>
+                <span className="font-semibold text-white">{metadata?.bank_name || '—'}</span>
+                <span className="text-slate-400 font-mono">({metadata?.reporting_period || '—'} vs {metadata?.comparative_period || '—'})</span>
+              </div>
 
-            <div className="flex items-center gap-1.5 bg-slate-800 px-2.5 py-1 border border-slate-700">
-              <span className="text-slate-400 font-medium">Job ID:</span>
-              <span className="font-mono text-slate-200">{jobId}</span>
-            </div>
+              <div className="flex items-center gap-1.5 bg-slate-800 px-2.5 py-1 border border-slate-700">
+                <span className="text-slate-400 font-medium">Job ID:</span>
+                <span className="font-mono text-slate-200">{jobId}</span>
+              </div>
 
-            <div className="bg-red-900/80 border border-red-700 text-red-200 px-2.5 py-1 font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
-              <ShieldAlert className="w-3.5 h-3.5" />
-              <span>{metadata?.overall_status || 'EXCEPTIONS FOUND'}</span>
+              <div className="bg-red-900/80 border border-red-700 text-red-200 px-2.5 py-1 font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                <ShieldAlert className="w-3.5 h-3.5" />
+                <span>{metadata?.overall_status || 'EXCEPTIONS FOUND'}</span>
+              </div>
             </div>
+          )}
+
+          {/* AI Copilot Status Badge */}
+          <div className="flex items-center gap-2">
+            {llmStatus === 'ACTIVE' ? (
+              <div className="flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-800 text-emerald-300 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-xs shadow-sm shadow-emerald-900/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>AI Copilot: {llmModel.split(':')[0]}</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5 bg-slate-800/80 border border-slate-700 text-slate-400 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                <span>AI Copilot: Offline</span>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </header>
 
       {/* Main Layout Container */}
@@ -148,7 +183,9 @@ export const AppShell: React.FC<AppShellProps> = ({ metadata: propMetadata }) =>
             </div>
             <div className="flex items-center justify-between">
               <span>Mode:</span>
-              <span className="font-mono text-emerald-400 text-[10px]">Deterministic + Grounded AI</span>
+              <span className={`font-mono text-[10px] ${llmStatus === 'ACTIVE' ? 'text-emerald-400 font-semibold' : 'text-amber-500 font-semibold'}`}>
+                {llmStatus === 'ACTIVE' ? 'Deterministic + Grounded AI' : 'Deterministic Fallback'}
+              </span>
             </div>
             <div className="text-[10px] text-slate-400 pt-1 border-t border-slate-900 flex items-center gap-1">
               <Clock className="w-3 h-3 text-slate-400" />

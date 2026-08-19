@@ -151,8 +151,18 @@ def sync_job_ai_summary(job_data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def load_seed_fixture() -> Dict[str, Any]:
-    fixture_path = Path(__file__).parent.parent / "docs" / "reference" / "ai_review_sample.json"
-    if fixture_path.exists():
+    possible_paths = [
+        Path(__file__).resolve().parent.parent / "docs" / "reference" / "ai_review_sample.json",
+        Path(__file__).resolve().parent.parent.parent / "docs" / "reference" / "ai_review_sample.json",
+        Path(__file__).resolve().parent / "docs" / "reference" / "ai_review_sample.json",
+    ]
+    fixture_path = None
+    for p in possible_paths:
+        if p.exists():
+            fixture_path = p
+            break
+            
+    if fixture_path:
         with open(fixture_path, "r", encoding="utf-8") as f:
             return json.load(f)
     # Default fallback object if file path differs

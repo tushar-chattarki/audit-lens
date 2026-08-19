@@ -182,3 +182,16 @@ export async function updateFindingReviewerState(
 // Backward compatibility helper
 export const createReview = createJob;
 
+export async function fetchHealth(): Promise<{ llm_status?: string; llm_model?: string }> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/health`);
+    if (!res.ok) {
+      throw new Error();
+    }
+    return await res.json();
+  } catch (error) {
+    return { llm_status: 'INACTIVE' };
+  }
+}
+
+

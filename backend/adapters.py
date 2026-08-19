@@ -347,8 +347,8 @@ def attach_ai_explanations(
     # Inject AI explanations into canonical findings
     for f in findings:
         fid = f.get("finding_id")
-        if fid in ai_lookup and f.get("ai_explanation") is None:
-            raw = ai_lookup[fid]
+        raw = ai_lookup.get(fid) or f.get("ai_explanation")
+        if raw and isinstance(raw, dict):
             f["ai_explanation"] = {
                 "label": raw.get("label", "SUGGESTED — pending reviewer sign-off"),
                 "text": raw.get("text"),

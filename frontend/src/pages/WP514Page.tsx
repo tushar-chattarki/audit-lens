@@ -235,7 +235,7 @@ export const WP514Page: React.FC = () => {
                   <td className="font-mono text-[10px] text-slate-700">
                     Page {f.evidence[0]?.page || 2}, {f.evidence[0]?.table}
                   </td>
-                  <td className="text-slate-700 max-w-xs truncate" title={f.ai_explanation?.text || f.ai_explanation?.suggested_revision || ''}>
+                  <td className="text-slate-700 max-w-md whitespace-normal break-words leading-relaxed text-xs" title={f.ai_explanation?.text || f.ai_explanation?.suggested_revision || ''}>
                     {f.ai_explanation?.text || f.ai_explanation?.suggested_revision || '—'}
                   </td>
                   <td className="font-mono text-[10px] uppercase font-bold text-slate-800">
