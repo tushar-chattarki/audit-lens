@@ -24,6 +24,19 @@ export function exportWP514ToExcel(
   const wp = data.wp514;
   if (!wp) return;
 
+  const unitLabel = data.review_metadata.unit || wp.engagement_details.unit || 'Crores (Cr)';
+  const unitShort = unitLabel.includes('(') ? unitLabel.split('(')[1].replace(')', '') : unitLabel;
+
+  const fmt = (val: any) => {
+    if (val === null || val === undefined) return '—';
+    if (typeof val === 'number') return `₹${val.toLocaleString()} ${unitShort}`;
+    let strVal = String(val);
+    if (strVal.includes('Cr') || strVal.includes('Crores')) {
+      strVal = strVal.replace(/\bCr\b/g, unitShort).replace(/\bCrores\b/g, unitShort);
+    }
+    return strVal;
+  };
+
   const now = new Date();
   const downloadTimestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${now.toLocaleTimeString()}`;
 
@@ -100,9 +113,9 @@ export function exportWP514ToExcel(
       f.module,
       f.check,
       f.status.toUpperCase(),
-      typeof f.actual === 'number' ? `₹${f.actual} Cr` : String(f.actual ?? '—'),
-      typeof f.expected === 'number' ? `₹${f.expected} Cr` : String(f.expected ?? '—'),
-      f.difference !== null && f.difference !== undefined ? (typeof f.difference === 'number' ? `₹${f.difference} Cr` : String(f.difference)) : '—',
+      fmt(f.actual),
+      fmt(f.expected),
+      f.difference !== null && f.difference !== undefined ? fmt(f.difference) : '—',
       f.severity.toUpperCase(),
       f.evidence ? f.evidence.map((e) => `${e.table} (Page ${e.page}, Row: ${e.row})`).join('; ') : 'N/A',
       f.ai_explanation ? f.ai_explanation.text || f.ai_explanation.suggested_revision || '' : 'N/A',
@@ -134,7 +147,7 @@ export function exportWP514ToExcel(
   s3Rows.push(['4. MATHEMATICAL REVIEW CHECKS (DETERMINISTIC ENGINE)']);
   s3Rows.push(['Check ID', 'Statement', 'Check Description', 'Formula / Rule', 'Reported Result', 'Calculated Result', 'Variance', 'Status']);
   wp.math_checks.forEach((mc) => {
-    s3Rows.push([mc.check_id, mc.statement, mc.check_description, mc.formula_rule, mc.reported_result, mc.calculated_result, mc.variance, mc.status.toUpperCase()]);
+    s3Rows.push([mc.check_id, mc.statement, mc.check_description, mc.formula_rule, fmt(mc.reported_result), fmt(mc.calculated_result), fmt(mc.variance), mc.status.toUpperCase()]);
   });
   s3Rows.push([]);
 
@@ -144,9 +157,9 @@ export function exportWP514ToExcel(
     s3Rows.push([
       py.statement,
       py.line_item,
-      py.current_year_value,
-      py.prior_year_value,
-      py.absolute_change,
+      fmt(py.current_year_value),
+      fmt(py.prior_year_value),
+      fmt(py.absolute_change),
       `${py.percentage_change}%`,
       py.review_threshold,
       py.flag ? 'FLAGGED' : 'PASS',

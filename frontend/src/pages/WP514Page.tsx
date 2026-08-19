@@ -68,7 +68,11 @@ export const WP514Page: React.FC = () => {
     if (typeof val === 'number') {
       return `${currencySymbol}${val.toLocaleString()} ${unitShort}`;
     }
-    return String(val);
+    let strVal = String(val);
+    if (strVal.includes('Cr') || strVal.includes('Crores')) {
+      strVal = strVal.replace(/\bCr\b/g, unitShort).replace(/\bCrores\b/g, unitShort);
+    }
+    return strVal;
   };
 
   const handleSaveSignoff = () => {
