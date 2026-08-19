@@ -15,9 +15,17 @@ function applyAutoColumnWidths(worksheet: XLSX.WorkSheet, rows: any[][], minWidt
   worksheet['!cols'] = colWidths.map((w) => ({ wch: w }));
 }
 
-export function exportWP514ToExcel(data: ReviewResponse, finalDecision?: string, finalComments?: string) {
+export function exportWP514ToExcel(
+  data: ReviewResponse,
+  finalDecision?: string,
+  finalComments?: string,
+  auditorName?: string
+) {
   const wp = data.wp514;
   if (!wp) return;
+
+  const now = new Date();
+  const downloadTimestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${now.toLocaleTimeString()}`;
 
   const workbook = XLSX.utils.book_new();
 
@@ -36,8 +44,9 @@ export function exportWP514ToExcel(data: ReviewResponse, finalDecision?: string,
   s1Rows.push(['Reporting Unit', wp.engagement_details.unit]);
   s1Rows.push(['Source Document', wp.engagement_details.source_document_current]);
   s1Rows.push(['Review Date', wp.engagement_details.review_date]);
+  s1Rows.push(['Export Date & Time', downloadTimestamp]);
   s1Rows.push(['Prepared By', wp.engagement_details.prepared_by]);
-  s1Rows.push(['Reviewed By', wp.engagement_details.reviewed_by]);
+  s1Rows.push(['Reviewed By / Auditor', auditorName || wp.engagement_details.reviewed_by]);
   s1Rows.push(['Overall Review Status', wp.engagement_details.overall_status]);
   s1Rows.push([]);
 
@@ -57,6 +66,8 @@ export function exportWP514ToExcel(data: ReviewResponse, finalDecision?: string,
   s1Rows.push(['Key Issues Requiring Attention', wp.overall_conclusion.key_issues_requiring_attention.join('; ')]);
   s1Rows.push(['AI-Generated Review Summary', wp.overall_conclusion.ai_generated_review_summary]);
   s1Rows.push(['Final Reviewer Decision', finalDecision || wp.overall_conclusion.final_reviewer_decision]);
+  s1Rows.push(['Auditor / Reviewer Name', auditorName || wp.engagement_details.reviewed_by]);
+  s1Rows.push(['Sign-Off Timestamp', downloadTimestamp]);
   s1Rows.push(['Reviewer Comments', finalComments || wp.overall_conclusion.reviewer_comments]);
 
   const ws1 = XLSX.utils.aoa_to_sheet(s1Rows);

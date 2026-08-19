@@ -24,6 +24,7 @@ export const WP514Page: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   // Editable Reviewer Sign-Off state
+  const [auditorName, setAuditorName] = useState<string>('Senior Bank Auditor');
   const [finalDecision, setFinalDecision] = useState<string>(
     'REQUIRES REVISION BY FINANCE TEAM'
   );
@@ -33,6 +34,9 @@ export const WP514Page: React.FC = () => {
   useEffect(() => {
     fetchReview(jobId).then((res) => {
       setData(res);
+      if (res.wp514?.engagement_details?.reviewed_by && res.wp514.engagement_details.reviewed_by !== 'Pending Auditor Sign-off') {
+        setAuditorName(res.wp514.engagement_details.reviewed_by);
+      }
       if (res.wp514?.overall_conclusion) {
         setFinalDecision(res.wp514.overall_conclusion.final_reviewer_decision || 'REQUIRES REVISION BY FINANCE TEAM');
         setFinalComments(
@@ -74,7 +78,7 @@ export const WP514Page: React.FC = () => {
 
   const handleExportXLSX = () => {
     if (data) {
-      exportWP514ToExcel(data, finalDecision, finalComments);
+      exportWP514ToExcel(data, finalDecision, finalComments, auditorName);
     }
   };
 
@@ -146,6 +150,10 @@ export const WP514Page: React.FC = () => {
           <div className="bg-slate-50 p-2.5 border border-slate-200">
             <span className="text-slate-500 text-[10px] block">Prepared By:</span>
             <span className="font-bold text-slate-900">{eng.prepared_by || meta.prepared_by}</span>
+          </div>
+          <div className="bg-slate-50 p-2.5 border border-slate-200">
+            <span className="text-slate-500 text-[10px] block">Reviewed By / Auditor:</span>
+            <span className="font-bold text-slate-900">{auditorName || eng.reviewed_by || meta.reviewed_by}</span>
           </div>
           <div className="bg-red-50 p-2.5 border border-red-300">
             <span className="text-slate-500 text-[10px] block">Overall Status:</span>
@@ -428,6 +436,19 @@ export const WP514Page: React.FC = () => {
             </div>
 
             <div className="space-y-3">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Lead Auditor / Reviewer Name:
+                </label>
+                <input
+                  type="text"
+                  value={auditorName}
+                  onChange={(e) => setAuditorName(e.target.value)}
+                  placeholder="Enter lead auditor name..."
+                  className="w-full text-xs px-3 py-2 border border-slate-300 font-semibold text-slate-900 bg-white focus:ring-1 focus:ring-blue-800 outline-none mb-2"
+                />
+              </div>
+
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
                   Final Decision Status:
